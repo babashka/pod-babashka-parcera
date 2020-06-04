@@ -52,7 +52,7 @@ A minimal namespace require sorting demo:
             loc (meta (first children))
             start (-> loc :parcera.core/start :column)
             whitespace (str (apply str "\n" (repeat start " ")))
-            children (sort-by vec children)
+            children (sort-by str children)
             children (butlast (interleave children (repeat (list :whitespace whitespace))))]
         (cons :list (cons '(:keyword ":require") (cons first-whitespace children))))
       (cons (first node) (map transform-node (rest node))))
