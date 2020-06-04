@@ -73,7 +73,7 @@ $ find /code/app | grep -e "\.clj$" | xargs examples/find_comments.clj | head
 
 ### Zipper
 
-Walk all the nodes and print the parcera AST + code, except when it's a
+Walk all the nodes and print the parcera AST + sexpr, except when it's a
 whitespace node.
 
 ``` clojure
