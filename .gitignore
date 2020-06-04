@@ -1,0 +1,4 @@
+/target
+/pod-babashka-parcera
+/.cpcache
+.lein-repl-history
