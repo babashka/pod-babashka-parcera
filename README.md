@@ -32,7 +32,8 @@ This pod requires babashka v0.0.96 or later.
 ;;=> "(ns foo)"
 ```
 
-A minimal namespace require sorting demo can be found in `examples`.
+A minimal and probably incomplete namespace require sorting demo can be found in
+`examples`.
 
 ``` clojure
 $ cat ns_form.clj

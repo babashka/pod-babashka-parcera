@@ -13,7 +13,6 @@
              (= '(:keyword ":require") (second node)))
       (let [children (nnext node)
             first-whitespace (some #(when (= :whitespace (first %)) %) children)
-            ;; _ (prn first-whitespace)
             children (remove #(= :whitespace (first %)) children)
             loc (meta (first children))
             start (-> loc :parcera.core/start :column)
