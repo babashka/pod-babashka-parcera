@@ -77,6 +77,7 @@ Walk all the nodes and print the parcera AST + code, except when it's a
 whitespace node.
 
 ``` clojure
+$ examples/zipper.clj "^:foo ^:bar {:a 1}"
 (:metadata (:metadata_entry (:keyword ":foo")) (:whitespace " ") (:metadata_entry (:keyword ":bar")) (:whitespace " ") (:map (:keyword ":a") (:whitespace " ") (:number "1")))
 "^:foo ^:bar {:a 1}"
 (:metadata_entry (:keyword ":foo"))
