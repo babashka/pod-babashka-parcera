@@ -76,7 +76,9 @@
                                 args (read-string args)
                                 args (edn/read-string args)]
                             (if-let [f (lookup var)]
-                              (let [value (pr-str (apply f args))
+                              (let [value (binding [*print-meta* true]
+                                            (let [result (apply f args)]
+                                              (pr-str result)))
                                     reply {"value" value
                                            "id" id
                                            "status" ["done"]}]
