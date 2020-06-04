@@ -24,9 +24,12 @@ This pod requires babashka v0.0.96 or later.
 (require '[babashka.pods :as pods])
 (pods/load-pod "pod-babashka-parcera")
 (require '[pod.babashka.parcera :as parcera])
+
 (parcera/ast "(ns foo)")
 ;;=> (:code (:list (:symbol "ns") (:whitespace " ") (:symbol "foo")))
- (parcera/code (parcera/ast "(ns foo)")) ;;=> "(ns foo)"
+
+(parcera/code (parcera/ast "(ns foo)"))
+;;=> "(ns foo)"
 ```
 
 ## Dev
