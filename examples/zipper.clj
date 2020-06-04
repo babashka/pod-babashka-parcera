@@ -22,5 +22,6 @@
   (when-not (zip/end? zloc)
     (let [node (zip/node zloc)]
       (when-not (= :whitespace (first node))
+        (prn node)
         (prn (parcera/code node))))
     (recur (zip/next zloc))))

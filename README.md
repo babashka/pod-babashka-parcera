@@ -73,17 +73,25 @@ $ find /code/app | grep -e "\.clj$" | xargs examples/find_comments.clj | head
 
 ### Zipper
 
-Walk all the nodes and print them, except when it's a whitespace node.
+Walk all the nodes and print the parcera AST + code, except when it's a
+whitespace node.
 
 ``` clojure
-$ examples/zipper.clj "^:foo ^:bar {:a 1}"
+(:metadata (:metadata_entry (:keyword ":foo")) (:whitespace " ") (:metadata_entry (:keyword ":bar")) (:whitespace " ") (:map (:keyword ":a") (:whitespace " ") (:number "1")))
 "^:foo ^:bar {:a 1}"
+(:metadata_entry (:keyword ":foo"))
 "^:foo"
+(:keyword ":foo")
 ":foo"
+(:metadata_entry (:keyword ":bar"))
 "^:bar"
+(:keyword ":bar")
 ":bar"
+(:map (:keyword ":a") (:whitespace " ") (:number "1"))
 "{:a 1}"
+(:keyword ":a")
 ":a"
+(:number "1")
 "1"
 ```
 
