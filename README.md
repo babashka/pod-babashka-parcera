@@ -49,8 +49,8 @@ A minimal namespace require sorting demo:
       (let [children (nnext node)
             first-whitespace (some #(when (seq? %) (= :whitespace (first %)) %) children)
             children (remove #(and (seq? %) (= :whitespace (first %))) children)
-            indent (meta (first children))
-            start (-> indent :parcera.core/start :column)
+            loc (meta (first children))
+            start (-> loc :parcera.core/start :column)
             whitespace (str (apply str "\n" (repeat start " ")))
             children (sort-by vec children)
             children (butlast (interleave children (repeat (list :whitespace whitespace))))]
