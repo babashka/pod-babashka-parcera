@@ -32,40 +32,24 @@ This pod requires babashka v0.0.96 or later.
 ;;=> "(ns foo)"
 ```
 
-A minimal namespace require sorting demo:
+A minimal namespace require sorting demo can be found in `examples`.
 
 ``` clojure
-(require '[clojure.string :as str])
-
-(def parsed (parcera/ast (str/triml "
+$ cat ns_form.clj
 (ns foo
-  (:require b c a))")))
+  (:require
+   [z.foo :as z]
+   [a.foo :as a]))
 
-;; we're not using postwalk since it doesn't preserve metadata
-(defn transform-node [node]
-  (if (seq? node)
-    (if (and (= :list (first node))
-             (= '(:keyword ":require") (second node)))
-      (let [children (nnext node)
-            first-whitespace (some #(when (= :whitespace (first %)) %) children)
-            children (remove #(= :whitespace (first %)) children)
-            loc (meta (first children))
-            start (-> loc :parcera.core/start :column)
-            whitespace (str (apply str "\n" (repeat start " ")))
-            children (sort-by str children)
-            children (butlast (interleave children (repeat (list :whitespace whitespace))))]
-        (cons :list (cons '(:keyword ":require") (cons first-whitespace children))))
-      (cons (first node) (map transform-node (rest node))))
-    node))
+(defn foo [])
 
-(def processed (transform-node parsed))
+$ cat ns_form.clj | examples/sort_requires.clj
+(ns foo
+  (:require
+   [a.foo :as a]
+   [z.foo :as z]))
 
-(println (parcera/code processed))
-;; =>
-;; (ns foo
-;;   (:require a
-;;             b
-;;             c))
+(defn foo [])
 ```
 
 ## Dev
