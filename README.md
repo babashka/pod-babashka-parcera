@@ -36,7 +36,7 @@ A minimal and probably incomplete namespace require sorting demo can be found in
 `examples`.
 
 ``` clojure
-$ cat ns_form.clj
+$ cat foo.clj
 (ns foo
   (:require
    [z.foo :as z]
@@ -44,7 +44,7 @@ $ cat ns_form.clj
 
 (defn foo [])
 
-$ cat ns_form.clj | examples/sort_requires.clj
+$ cat foo.clj | examples/sort_requires.clj
 (ns foo
   (:require
    [a.foo :as a]
