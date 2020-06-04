@@ -32,8 +32,11 @@ This pod requires babashka v0.0.96 or later.
 ;;=> "(ns foo)"
 ```
 
-A minimal and probably incomplete namespace require sorting demo can be found in
-`examples`.
+## Examples
+
+For the source, see the [examples](examples) directory.
+
+### Sort requires
 
 ``` clojure
 $ cat foo.clj
@@ -51,6 +54,21 @@ $ cat foo.clj | examples/sort_requires.clj
    [z.foo :as z]))
 
 (defn foo [])
+```
+
+### Find comments
+
+``` clojure
+$ find /code/app | grep -e "\.clj$" | xargs examples/find_comments.clj | head
+/code/app/test/dre/yada/error_renderers_test.clj:87:
+(comment
+  (schema-validation-error-test)
+  (errors-test)
+  (t/run-tests))
+
+/code/app/test/dre/yada/util_test.clj:13:
+(comment
+  (t/run-tests))
 ```
 
 ## Dev
