@@ -71,6 +71,22 @@ $ find /code/app | grep -e "\.clj$" | xargs examples/find_comments.clj | head
   (t/run-tests))
 ```
 
+### Zipper
+
+Walk all the nodes and print them, except when it's a whitespace node.
+
+``` clojure
+$ examples/zipper.clj "^:foo ^:bar {:a 1}"
+"^:foo ^:bar {:a 1}"
+"^:foo"
+":foo"
+"^:bar"
+":bar"
+"{:a 1}"
+":a"
+"1"
+```
+
 ## Dev
 
 ### Build
