@@ -2,7 +2,7 @@
   #=(clojure.string/trim
      #=(slurp "resources/POD_VERSION"))
   :description "babashka parcera pod"
-  :url "https://github.com/borkdude/pod-babashka-etaion"
+  :url "https://github.com/borkdude/pod-babashka-parcera"
   :scm {:name "git"
         :url "https://github.com/borkdude/pod-babashka-parcera"}
   :license {:name "Eclipse Public License 1.0"
