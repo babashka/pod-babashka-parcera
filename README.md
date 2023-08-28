@@ -11,6 +11,15 @@ This is work in progress.
 
 The following installation methods are available:
 
+- Use the latest version from the
+  [pod-registry](https://github.com/babashka/pod-registry). This is done by
+  calling `load-pod` with a qualified keyword:
+
+  ``` clojure
+  (require '[babashka.pods :as pods])
+  (pods/load-pod 'org.babashka/parcera "0.0.1")
+  ```
+
 - Download a binary from Github releases
 <!-- - With [brew](https://brew.sh/): `brew install borkdude/brew/pod-babashka-parcera` -->
 
@@ -22,7 +31,12 @@ This pod requires babashka v0.0.96 or later.
 
 ``` clojure
 (require '[babashka.pods :as pods])
-(pods/load-pod "pod-babashka-parcera")
+
+;; load from pod registry:
+(pods/load-pod 'org.babashka/parcera "0.0.1")
+;; or load from system path:
+;; (pods/load-pod "pod-babashka-parcera")
+
 (require '[pod.babashka.parcera :as parcera])
 
 (parcera/ast "(ns foo)")
